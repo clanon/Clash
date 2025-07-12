@@ -56,7 +56,7 @@ tproxy-port: 7894
 allow-lan: true
 bind-address: "*"
 # 是否允许ipv6内核，到时候再说-clanon
-ipv6: false
+ipv6: true
 unified-delay: true
 tcp-concurrent: true
 log-level: warning
@@ -111,7 +111,7 @@ dns:
   enable: true
   listen: 0.0.0.0:1053
   # DNS是否支持IPV6，到时候再说-clanon
-  ipv6: false
+  ipv6: true
   respect-rules: true
   # 模式切换 redir-host / fake-ip
   enhanced-mode: fake-ip
