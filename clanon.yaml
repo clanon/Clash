@@ -56,7 +56,7 @@ tproxy-port: 7894
 allow-lan: true
 bind-address: "*"
 # 是否允许ipv6内核，到时候再说-clanon
-ipv6: true
+ipv6: false
 unified-delay: true
 tcp-concurrent: true
 log-level: warning
