@@ -134,14 +134,19 @@ dns:
     - 1.1.1.1
     #直连DNS
   direct-nameserver:
+    - 114.114.114.114
     - 223.5.5.5
     - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
     #是否不先走直连DNS，false表明先走直连DNS -clanon
   proxy-nameserver-follow-policy: false
     # 给机场服务器订阅做的DNS查询 -clanon
   proxy-server-nameserver:
     - 233.5.5.5
     - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
   # namesever主服务器 -clanon
   nameserver:
     # 电信DNS -clanon
