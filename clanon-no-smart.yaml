@@ -1,0 +1,254 @@
+# 必读！！！
+# 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能。
+# 跑裸核用户请自行去掉下方控制面板模块的注释。
+# 机场订阅
+proxy-providers:
+  Kuromi:
+    url: https://veridianpulse.net/32491024d93a8ef7695866f874c54b6d?type=clash&protocol=ss2022&use=domestic&rule=default
+    type: http
+    interval: 1800
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+
+  Immtel:
+    url: https://api.immtel.co/?L1N1YnNjcmlwdGlvbi9DbGFzaD90PTIwMjImc2lkPTIwNjc2JnRva2VuPWtLUlN5MjNrOVBlJm1tPTMwNzYyJjI5Yjlj
+    type: http
+    interval: 1800
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+    
+  Nexitally:
+    url: https://cdn.kineticbloom.org/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/dD1jMjAyMiZlcT1yb3V0ZSZ1cms9MTRjYWY3ZjMtOWYxZS00OTU1LTk3YmEtNTk0NWNiZjBjZGRjJm1tPTQ5NzEyJmt0bW09bmw4c3dtcHJLWVQzc3ZmRVUlMmJnWGRnJTNkJTNkJmEyMzE1ZDgxN2RmYjRjNmViMmU0OGFjYzk1
+    type: http
+    interval: 1800
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+
+  Amy:
+    url: https://sub.kwk7thgc.com/?L1N1YnNjcmlwdGlvbi9DbGFzaD9zaWQ9NTE1JnRva2VuPVNLRWhRb0NsS3Y0Jm1tPTEwNjAxJmEzNzYzMWFkODkzMzRmNzhhNjUxYTEwMg==
+    type: http
+    interval: 1800
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+
+# 节点信息
+proxies:
+  - {name: 直连, type: direct}
+
+# 全局配置 
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+allow-lan: true
+bind-address: "*"
+# 是否允许ipv6内核，到时候再说-clanon
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+log-level: warning
+# 匹配进程
+find-process-mode: 'off'
+# interface-name: en0
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 15
+disable-keep-alive: false
+# 策略组选择和fakeip缓存
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# 控制面板，external-ui 路径如果出现报错，根据你使用的插件进行调整，比如openclash改为： /etc/openclash/run  ，裸核跑改为/etc/mihomo/run
+# 因容易造成新手面板启动问题，我注释掉了，需要的自行开启
+external-controller: 0.0.0.0:9090
+secret: ""
+external-ui: "/etc/openclash/run"
+external-ui-name: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+
+# 嗅探
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - "+.v2ex.com"
+  skip-domain:
+    - "+.baidu.com"
+
+# 入站  
+tun:
+  enable: true
+  # system/gvisor/mixed
+  stack: mixed
+  dns-hijack: ["any:53", "tcp://any:53"]
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+# DNS模块
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  # DNS是否支持IPV6，到时候再说-clanon
+  ipv6: false
+  respect-rules: true
+  # 模式切换 redir-host / fake-ip
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter-mode: blacklist
+  # 这个很重要，注意修改-clanon
+  fake-ip-filter:
+    - "rule-set:private_domain,cn_domain"
+    - "+.msftconnecttest.com"
+    - "+.services.googleapis.cn"
+    - "+.xn- -ngstr-lra8j.com"
+    - "+.msftncsi.com"
+    - "time.*.com"
+    - "+.market.xiaomi.com"
+    # 默认服务器，解析下面域名地址 -clanon
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
+    #直连DNS
+  direct-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    #是否不先走直连DNS，false表明先走直连DNS -clanon
+  proxy-nameserver-follow-policy: false
+    # 给机场服务器订阅做的DNS查询 -clanon
+  proxy-server-nameserver:
+    - 233.5.5.5
+    - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
+  # namesever主服务器 -clanon
+  nameserver:
+    # 电信DNS -clanon
+    - 114.114.114.114
+    # Alidns -clanon
+    - 223.5.5.5
+    # Tencentdns -clanon
+    - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
+ 
+# 出站策略，根据自己情况调整每个策略里分组排序，增删都可以，比如把美国自动放到第一个，比如删除香港故转，注意别漏掉表情逗号等。
+# 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
+# 没有再使用锚点，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
+proxy-groups:
+  # 代理组
+  - {name: 默认代理, type: select, proxies: [香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: YouTube, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: Google, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: ChatGPT, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: GitHub, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: OneDrive, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: Microsoft, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: TikTok, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: Telegram, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: NETFLIX, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: Speedtest, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: PayPal, type: select, proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 美国自动, 台湾自动, 香港节点, 日本节点, 新加坡节点, 美国节点, 台湾节点, 香港故转, 日本故转, 新加坡故转, 美国故转, 台湾故转, 自动选择, 全部节点, 直连]}
+  - {name: Apple, type: select, proxies: [直连, 默认代理]}
+  - {name: 国内直连, type: select, proxies: [直连, 默认代理]}
+  - {name: 漏网之鱼, type: select, proxies: [直连, 默认代理]}
+  # 国家组
+  - {name: 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(港|台|韩|日|美)).)*$" }
+  - {name: 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|^(?i)US$|USA|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
+  - {name: 台湾自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(台|tw|taiwan))^((?!(港|美|韩|新|日)).)*$" }
+  - {name: 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 新加坡故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(台|日|韩|深|美)).)*$"}
+  - {name: 美国故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|^(?i)US$|USA|(?i)States|America))^((?!(港|台|韩|新|日)).)*$" }
+  - {name: 台湾故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(台|tw|taiwan))^((?!(港|美|韩|新|日)).)*$" }
+  - {name: 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
+  - {name: 新加坡节点, type: select, include-all: true, filter: "(?i)新加坡|坡|狮城|SG|Singapore"}
+  - {name: 美国节点, type: select, include-all: true, filter: "(?i)美|^(?i)US$|USA|unitedstates|united states"}
+  - {name: 台湾节点, type: select, include-all: true, filter: "(?i)台|tw|taiwan"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
+  - {name: 全部节点, type: select, include-all: true}
+
+# 规则匹配
+# 此规则部分没有做防泄露处理，因为弊严重大于利！
+rules:
+  #- DOMAIN-SUFFIX,qichiyu.com,默认代理
+  - RULE-SET,private_domain,国内直连
+  - RULE-SET,apple_domain,Apple
+  - RULE-SET,myProxy,默认代理
+  - RULE-SET,myDirect,国内直连
+  - RULE-SET,ai,ChatGPT
+  - RULE-SET,github_domain,GitHub
+  - RULE-SET,youtube_domain,YouTube
+  - RULE-SET,google_domain,Google
+  - RULE-SET,onedrive_domain,OneDrive
+  - RULE-SET,microsoft_domain,Microsoft
+  - RULE-SET,tiktok_domain,TikTok
+  - RULE-SET,speedtest_domain,Speedtest
+  - RULE-SET,telegram_domain,Telegram
+  - RULE-SET,netflix_domain,NETFLIX
+  - RULE-SET,paypal_domain,PayPal
+  - RULE-SET,gfw_domain,默认代理
+  - RULE-SET,geolocation-!cn,默认代理
+  - RULE-SET,cn_domain,国内直连
+  - RULE-SET,google_ip,Google,no-resolve
+  - RULE-SET,netflix_ip,NETFLIX,no-resolve
+  - RULE-SET,telegram_ip,Telegram,no-resolve
+  - RULE-SET,cn_ip,国内直连
+  - MATCH,漏网之鱼
+
+# 规则集
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+  class2: &class2 {type: http, interval: 10, behavior: classical, format: text}
+rule-providers: 
+  private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  myProxy: { <<: *class2, url: "https://raw.githubusercontent.com/clanon/Clash/refs/heads/main/myProxy.list"}
+  myDirect: { <<: *class2, url: "https://raw.githubusercontent.com/clanon/Clash/refs/heads/main/myDirect.list"}
+  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
+  ai: {  <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
+  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
+  github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
+  telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  paypal_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
+  onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
+  microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
+  apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
+  speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
+  tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
+  
+  cn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
