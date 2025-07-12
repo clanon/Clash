@@ -25,6 +25,7 @@ proxy-providers:
     
   Nexitally:
     url: https://cdn.kineticbloom.org/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/dD1jMjAyMiZlcT1yb3V0ZSZ1cms9MTRjYWY3ZjMtOWYxZS00OTU1LTk3YmEtNTk0NWNiZjBjZGRjJm1tPTQ5NzEyJmt0bW09bmw4c3dtcHJLWVNFY3ZBMFglMmI1VG13JTNkJTNkJmJmMDI1ZTI3NTU4YTQwYTg5
+    type: http
     interval: 1800
     health-check:
       enable: true
