@@ -217,7 +217,7 @@ rules:
   - RULE-SET,telegram_domain,Telegram
   - RULE-SET,netflix_domain,NETFLIX
   - RULE-SET,paypal_domain,PayPal
-  - RULE-SET,steam_domain,PayPal
+  - RULE-SET,steam_domain,Game
   - RULE-SET,gfw_domain,默认代理
   - RULE-SET,geolocation-!cn,默认代理
   - RULE-SET,cn_domain,国内直连
