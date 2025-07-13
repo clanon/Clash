@@ -140,7 +140,8 @@ dns:
     - 8.8.8.8
     - 1.1.1.1
     #是否不先走直连DNS，false表明先走直连DNS -clanon
-  proxy-nameserver-follow-policy: false
+  proxy-nameserver-follow-policy: true
+  
     # 给机场服务器订阅做的DNS查询 -clanon
   proxy-server-nameserver:
     - 233.5.5.5
