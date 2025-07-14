@@ -24,7 +24,7 @@ proxy-providers:
     proxy: 直连
     
   Nexitally:
-    url: https://cdn.kineticbloom.org/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/dD1jMjAyMiZlcT1yb3V0ZSZ1cms9MTRjYWY3ZjMtOWYxZS00OTU1LTk3YmEtNTk0NWNiZjBjZGRjJm1tPTQ5NzEyJmt0bW09bmw4c3dtcHJLWVJmRVdrTDRSMXZqZyUzZCUzZCYzOWQwN2Q4MDAyOTQ0ZGVkYWU4OQ==
+    url: https://cdn.kineticbloom.org/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/ZXE9cm91dGUmdXJrPTE0Y2FmN2YzLTlmMWUtNDk1NS05N2JhLTU5NDVjYmYwY2RkYyZtbT00OTcxMiZrdG1tPSUyZmttdkZLbFZXRzllUERkRk1JQnlBUSUzZCUzZCZiNDg4
     type: http
     interval: 1800
     health-check:
