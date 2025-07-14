@@ -13,6 +13,9 @@ DOMAIN-KEYWORD,1e100
 # IP段匹配
 IP-CIDR,142.171.133.131/32,no-resolve
 IP-CIDR,103.115.43.2/32,no-resolve
+# telegram IP重新添加测试
+IP-CIDR,91.108.56.0/22,no-resolve
+IP-CIDR,149.154.160.0/20,no-resolve
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
