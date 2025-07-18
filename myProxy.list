@@ -5,7 +5,7 @@ DOMAIN-SUFFIX,qichiyu.com
 DOMAIN-SUFFIX,imagedelivery.net
 DOMAIN-SUFFIX,api.ipify.org
 DOMAIN-SUFFIX,copy20.com
-#T-mobile
+# T-mobile
 DOMAIN-SUFFIX,t-mobile.com
 
 # 域名关键字匹配
