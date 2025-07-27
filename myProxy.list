@@ -9,6 +9,7 @@ DOMAIN-SUFFIX,copy20.com
 DOMAIN-SUFFIX,t-mobile.com
 DOMAIN-SUFFIX,plyr.io
 DOMAIN-SUFFIX,googletagmanager.com
+DOMAIN-SUFFIX,googlesyndication.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,1e100
