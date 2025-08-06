@@ -23,6 +23,7 @@ DOMAIN-KEYWORD,mangafunb
 IP-CIDR,142.171.133.131/32,no-resolve
 IP-CIDR,103.115.43.2/32,no-resolve
 IP-CIDR,112.80.248.135/32,no-resolve
+IP-CIDR,119.28.206.193/32,no-resolve
 
 
 # 国外DNS
