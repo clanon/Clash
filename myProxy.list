@@ -30,6 +30,7 @@ DOMAIN-KEYWORD,hotmanga
 DOMAIN-KEYWORD,chaika
 DOMAIN-KEYWORD,realme.govt.nz
 DOMAIN-KEYWORD,myfans
+DOMAIN-KEYWORD,subtitlecat
 
 # IP段匹配
 IP-CIDR,142.171.133.131/32,no-resolve
