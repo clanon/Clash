@@ -12,6 +12,7 @@ DOMAIN-SUFFIX,openclaw.ai
 DOMAIN-SUFFIX,ssrdog.com
 DOMAIN-SUFFIX,ssrdog12.com
 DOMAIN-SUFFIX,surrit.com
+DOMAIN-SUFFIX,javten.com
 
 # T-mobile
 DOMAIN-SUFFIX,t-mobile.com
@@ -21,6 +22,7 @@ DOMAIN-SUFFIX,googlesyndication.com
 DOMAIN-SUFFIX,hembed.com
 DOMAIN-SUFFIX,mhgui.com
 DOMAIN-SUFFIX,realme.govt.nz
+DOMAIN-SUFFIX,javten
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,1e100
