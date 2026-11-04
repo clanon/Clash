@@ -7,6 +7,8 @@ DOMAIN-SUFFIX,lanzov.com
 DOMAIN-SUFFIX,hao123.com
 DOMAIN-SUFFIX,clanon.top
 DOMAIN-SUFFIX,test-ipv6.com
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN,hsbc.edge.sdk.awswaf.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
