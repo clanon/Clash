@@ -9,6 +9,7 @@ DOMAIN-SUFFIX,clanon.top
 DOMAIN-SUFFIX,test-ipv6.com
 DOMAIN-SUFFIX,hsbc.com.hk
 DOMAIN,hsbc.edge.sdk.awswaf.com
+DOMAIN-SUFFIX,steamcontent.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
